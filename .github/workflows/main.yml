@@ -3,26 +3,26 @@ name: Desplegar sitio web en GH pages
 on: 
   push:
     branches:
-      -main
+     - main
 
 jobs:
-    deploy:
-        runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Hacer checkout del repositorio
-              uses: actions/checkout@v3
+    steps:
+      - name: Hacer checkout del repositorio
+        uses: actions/checkout@v3
 
-            - name: Configurar node
-              uses: actions/setup-node@3
-              with: 
-                node-version: 20
-            - run: npm install
-            - run: npm test
+      - name: Configurar node
+        uses: actions/setup-node@3
+        with: 
+          node-version: 20
+      - run: npm install
+      - run: npm test
 
-            - name: Desplegar en GH Pages
-              uses: peaceiris/actions-gh-pages@v3
-              with:
-                github_token: ${{ secrets.GITHUB_TOKEN }}
-                publish_dir: ./
-                allow_empty_commit: true
+      - name: Desplegar en GH Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          allow_empty_commit: true
