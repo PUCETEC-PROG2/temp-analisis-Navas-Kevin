@@ -1,9 +1,9 @@
 name: Desplegar sitio web en GH pages
 
 on: 
-    push:
-        branches:
-            -main
+  push:
+    branches:
+      -main
 
 jobs:
     deploy:
